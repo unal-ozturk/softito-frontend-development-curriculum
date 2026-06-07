@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+    <form id="user-form">
+        <input type="text" id="first-name" placeholder="First Name"><br><br>
+        <input type="text" id="last-name" placeholder="Last Name"><br><br>
+        <input type="tel" id="phone-number" placeholder="Phone Number"><br><br>
+        <input type="file" id="image-input"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="container"></div>
+
+    <script>
+        document.getElementById('user-form').addEventListener('submit', function (event) {
+
+            event.preventDefault();
+
+
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const phone = document.getElementById('phone-number').value;
+            const imageFile = document.getElementById('image-input').files[0];
+            const outputDiv = document.getElementById('container');
+
+            let imgTag = '';
+            if (imageFile) {
+                const imgUrl = URL.createObjectURL(imageFile);
+                imgTag = `<img src="${imgUrl}" width="200">`;
+            }
+
+            outputDiv.innerHTML = `
+                <p>${firstName}</p>
+                <p>${lastName}</p>
+                <p>${phone}</p>
+                ${imgTag}
+            `;
+        });
+    </script>
+
+</body>
+
+</html>

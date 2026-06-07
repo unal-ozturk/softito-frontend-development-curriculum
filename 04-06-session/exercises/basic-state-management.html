@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <button class="btn">Metni Değiştir</button>
+  <p class="para">Ünal</p>
+  <script>
+
+
+
+    let counter = 0;
+
+    const btn = document.querySelector(".btn");
+    const para = document.querySelector(".para");
+
+    btn.addEventListener("click", function () {
+      counter++
+
+      if (counter < 2) {
+        para.textContent = "Eren"
+        console.log(counter)
+      } else {
+        para.textContent = "Okan"
+        console.log(counter)
+      }
+    });
+
+  </script>
+</body>
+
+</html>

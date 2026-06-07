@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .classic-btn {
+      background-color: #3b82f6;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-100 p-8">
+
+  <div class="max-w-xl mx-auto bg-white p-6 rounded shadow">
+    <h1 class="text-xl font-bold mb-4">Modern CSS & Tailwind CSS</h1>
+
+    <div class="mb-6">
+      <h2>1. Klasik CSS vs Tailwind</h2>
+
+      <div class="flex gap-4">
+        <button class="classic-btn">Klasik CSS Buton</button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded">
+          Tailwind css Buton
+        </button>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <h2 class="font-semibold mb-2">2. Temel Sınıflar</h2>
+      <div class="space-y-2">
+        <p class="text-lg text-red-500 font-bold">
+          Kırmızı Büyük Metin (text-lg text-red-500 font-bold)
+        </p>
+
+        <div class="flex gap-4">
+          <div class="bg-yellow-100 border p-4 rounded text-sm mb-4">
+            Sarı Kutu (bg-yellow-100 border p-4 rounded)
+          </div>
+          <div class="bg-red-100 border p-4 rounded text-sm mb-4">
+            Kırmızı Kutu (bg-red-100 border p-4 rounded )
+          </div>
+          <div class="bg-green-100 border p-4 rounded text-sm mb-4">
+            Yeşil Kutu (bg-green-100 border p-4 rounded )
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-800 text-white p-4 rounded text-center hover:bg-slate-700 mb-4">
+        Hover Deneme (hover:bg-slate-700)
+      </div>
+
+      <div class="bg-red-800 text-white p-4 rounded text-center hover:bg-red-700">
+        Hover Deneme (hover:bg-red-700)
+      </div>
+    </div>
+
+    <div class="mt-8 border-t pt-6 flex flex-wrap gap-3 text-xs">
+      <a href="demo.html" target="_blank"
+        class="bg-blue-600 text-white font-bold px-4 py-2 rounded hover:bg-blue-800 transition-colors">Demo Sayfasına
+        Git</a>
+      <a href="flex.html" target="_blank"
+        class="bg-indigo-600 text-white font-bold px-4 py-2 rounded hover:bg-indigo-800 transition-colors">
+        Flex Sayfasına Git</a>
+      <a href="index.html" target="_blank"
+        class="bg-lime-600 text-white font-bold px-4 py-2 rounded hover:bg-lime-800 transition-colors">Index Sayfasına
+        Git</a>
+    </div>
+  </div>
+</body>
+
+</html>
