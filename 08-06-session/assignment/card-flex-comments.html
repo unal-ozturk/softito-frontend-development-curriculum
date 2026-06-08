@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+    />
+    <title>Document</title>
+  </head>
+
+  <!-- body: Arka plan indigo ( 50 - ton değeri ), Yazı gray (800 - ton değeri), font ailesi (sans), minimum ekranın tamamını kaplayacak şekilde, p 8 rem, flex (col yapısı ile), yatay ve dikey konumda ortalamalı halde bulunuyor. Children arası gap değeri 6 (yaklaşık 24px) dir-->
+  <body
+    class="bg-indigo-50 text-gray-800 font-sans min-h-screen p-8 flex flex-col items-center justify-center gap-6"
+  >
+    <!-- div: Mmetinler, elementin ortasına gelecek şekilde ayarlanmış ve div için maksimum alacağı boyut (448px) belirlenmiş -->
+    <div class="text-center max-w-md">
+      <div>
+        <!-- h1: büyük text boyutu, kalın font yapısı, gri renkli (900 - ton değeri) ve margin alt kısım (bottom) değeri verilmiş (yaklaşık 8px) -->
+        <h1 class="text-xl font-bold text-gray-900 mb-2">
+          Fiyatlandırma Kartı Flex Column
+        </h1>
+
+        <!-- p: en küçük boyut (özel yapılandırma hariç), gri tonu (500 - ton değeri) -->
+        <p class="text-xs text-gray-500">
+          Kart elemanları üst üste sıralamak için flex-col, öne çıkan rozeti en
+          üstte göstermek için ise order-first sınıfı kullanacağız
+        </p>
+      </div>
+
+      <!-- div: maksimum genişlik değeri xs olmak üzere bulunduğu bölgedeki ana alanın %100ünü kaplayacak (w-full max-w-xs), beyaz arkaplanlı, kenar özellikli (gray ve 200 değeri), kenarlar daha yumuşak olan, iç boşluğu yaklaşık 24px değerinde, flex dikey yapıda,children arası boşluk (gap-4 yaklaşık 16px) ile küçük gölge içeren bir yapıya sahip -->
+      <div
+        class="w-full max-w-xs bg-white border border-gray-200 rounded-2xl p-6 flex flex-col gap-4 shadow-sm"
+      >
+        <div>
+          <!-- h2: küçük, kalın,(800 - ton değeri), hepsi büyük harf olacak şekilde ve harf araları geniş yapıya sahip bir h2 yapısı -->
+          <h2 class="text-sm font-bold text-gray-800 uppercase tracking-wider">
+            Standart Paket
+          </h2>
+
+          <!-- p: daha kalın ve büyük font yapısı, gri renkli (900 - ton değeri), üst margin 1 değerinde -->
+          <p class="text-2xl font-extrabold text-gray-900 mt-1">99 TL / Ay</p>
+        </div>
+
+        <!-- div: yatay ve dikeyde farklı padding değerleri, indigo arkaplan (100 - ton değeri), kenar özellikli (renk indigo - 200 değeri), metin rengi indigo (700 - ton değeri), text boyutu özel yapılandırılmış (9px), daha kalın bir yapıda ve tam yuvarlak div yapısı ile sadece bu div için flex başlangıç yerinde ve ilk sırada yer alacak şekilde ayarlanmış, tüm metinler büyük harf ve harf aralıkları geniş bir yapıdadır -->
+        <div
+          class="px-2.5 py-1 bg-indigo-100 border border-indigo-200 text-indigo-700 text-[9px] font-extrabold rounded-full self-start order-first uppercase tracking-wide"
+        >
+          En Popüler Paket (order-first)
+        </div>
+
+        <!-- div: en küçük font ayarı, gray - 500 metin rengi, her bir elemanları (ilki hariç) dikeyde 2 değer aralığa sahip olan, kenar özellikli (gray - 100) ve üst kısımdan 4 birim padding alan bir yapıya sahip -->
+        <div
+          class="text-xs text-gray-500 space-y-2 border border-gray-100 pt-4"
+        >
+          <p>1 Sınırsız Proje</p>
+          <p>25 tane kişisel proje</p>
+          <p>Grup Çalışması</p>
+        </div>
+
+        <!--button: parent elementinin tamamını kaplayacak şekilde (w-full), dikeyde 2 birim padding alan, indigo - 600 renk değerine sahip, transition colors ve hover verilerek daha koyu bir tona geçiş yapan, beyaz renkli, küçük ve bold a kıyasla daha az kalınlıkta olan bir metin yapısı ile, daha yuvarlak bir yapıya sahip ve dikeyde 2 birim margin (kutu dış alanı) yapısına sahip buton yapısı bulunuyor-->
+        <button
+          class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold transition-colors mt-2"
+        >
+          Satın Al
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

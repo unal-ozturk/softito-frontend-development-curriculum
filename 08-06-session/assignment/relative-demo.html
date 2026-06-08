@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Tailwind Relative</title>
+  </head>
+  <body class="bg-slate-200 p-8 font-sans text-slate-800">
+    <div class="max-w-3xl mx-auto space-y-12">
+      <h1 class="text-3xl font-bold text-center text-indigo-600 mb-8">
+        Tailwind Relative
+      </h1>
+
+      <section class="bg-white p-6 rounded-xl shadow-md">
+        <h2 class="text-xl font-semibold mb-4 text-slate-700">
+          1. Temel Relative & Yön Sınıfları (top, left vb.)
+        </h2>
+        <p class="text-sm text-slate-500 mb-4">
+          Eleman normal akıştadır ancak olduğu yerden X ve Y ekseninde
+          kaydırılır. Diğer elemanlar ise onun eski yerini korur.
+        </p>
+
+        <div
+          class="border border-dashed border-slate-300 p-4 bg-slate-50 flex gap-4"
+        >
+          <div
+            class="w-24 h-24 bg-slate-300 flex items-center justify-center rounded"
+          >
+            Normal
+          </div>
+          <div
+            class="relative top-6 left-6 w-24 h-24 bg-indigo-500 text-white flex items-center justify-center rounded shadow-lg"
+          >
+            Relative
+          </div>
+          <div
+            class="w-24 h-24 bg-slate-300 flex items-center justify-center rounded"
+          >
+            Normal
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white p-6 rounded-xl shadow-md">
+        <h2 class="text-xl font-semibold mb-4 text-slate-700">
+          2. Relative ve Absolute Kullanımı
+        </h2>
+        <p class="text-sm text-slate-500 mb-4">
+          Dış kutu 'relative' olur, böylece içindeki 'absolute' kutu dış kutunun
+          sınırlarına göre konumlanır (Sağ üst köşe örneği)
+        </p>
+
+        <div
+          class="relative w-full h-48 bg-emerald-100 border-2 border-emerald-400 rounded-lg p-4"
+        >
+          <span class="text-emerald-800 font-medium">Relative (Ana Kutu)</span>
+
+          <div
+            class="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md"
+          >
+            Absolute (Top-4 Right-4)
+          </div>
+
+          <div
+            class="absolute bottom-4 left-4 bg-emerald-800 text-white px-3 py-1 rounded text-sm"
+          >
+            Absolute (Bottom-4 Left-4)
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white p-6 rounded-xl shadow-md">
+        <h2 class="text-xl font-semibold mb-4 text-slate-700">
+          3. Relative ve z-index yapısı (z-index)
+        </h2>
+        <p class="text-sm text-slate-500 mb-4">
+          Elemanların üst üste durma sırasını belirler. z-index'in çalışması
+          için elemanın 'relative' (veya absolute) olması gerekiyor.
+        </p>
+
+        <div class="relative h-32 flex items-center justify-center">
+          <div
+            class="relative z-10 w-32 h-20 bg-amber-400 rounded-lg shadow-md flex items-center justify-center font-bold text-amber-900 -mr-8"
+          >
+            z-10 (Arkada)
+          </div>
+          <div
+            class="relative z-20 w-32 h-24 bg-purple-900 rounded-lg shadow-xl flex items-center justify-center font-bold text-white"
+          >
+            z-20 (Önde)
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white p-6 rounded-xl shadow-md">
+        <h2 class="text-xl font-semibold mb-4 text-slate-700">
+          4. Gerçek Hayattan Örnek: Bildirim Rozeti
+        </h2>
+        <p class="text-sm text-slate-500 mb-4">
+          Buton relative yapılır ve kırmızı rozet absolute ile tam köşeye
+          yerleşimi sağlanır.
+        </p>
+
+        <div class="flex justify-center">
+          <button
+            class="relative bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition cursor-pointer"
+          >
+            Mesaj kutusu
+            <span
+              class="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white ring-2 ring-white"
+            >
+              3
+            </span>
+          </button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
