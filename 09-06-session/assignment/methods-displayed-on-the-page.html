@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Methods</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 p-6 max-w-4xl mx-auto space-y-8">
+    <header class="border-b border-gray-200 pb-4">
+      <h1 class="text-2xl font-bold text-gray-900">
+        JavaScript Method Örnekleri
+      </h1>
+    </header>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-4">Örnekler</h2>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm"
+        id="single-examples"
+      ></div>
+    </section>
+
+    <script>
+      // Stillerin kolay uygulanması için function ekledim
+      function createCard(title, result) {
+        const container = document.getElementById("single-examples");
+        const card = document.createElement("div");
+        card.className =
+          "bg-white p-3 rounded border border-gray-200 shadow-sm font-mono text-xs";
+        card.innerHTML = `<strong class="text-gray-700 block mb-1">${title}:</strong> <span class="text-blue-600">${JSON.stringify(result)}</span>`;
+        container.appendChild(card);
+      }
+
+      // 1. map()
+      const sayilar = [1, 2, 3];
+      createCard(
+        "1. map() -> [1, 2, 3] karesi",
+        sayilar.map((x) => x * x),
+      );
+
+      // 2. find()
+      const yaslar = [12, 18, 22];
+      createCard(
+        "2. find() -> [12, 18, 22] >= 18 ilk eleman",
+        yaslar.find((yas) => yas >= 18),
+      );
+
+      // 3. reduce()
+      const paralar = [10, 20, 30];
+      createCard(
+        "3. reduce() -> [10, 20, 30] toplamı",
+        paralar.reduce((toplam, miktar) => toplam + miktar, 0),
+      );
+
+      // 4. filter()
+      const notlar = [45, 75, 85];
+      createCard(
+        "4. filter() -> [45, 75, 85] >= 50 olanlar",
+        notlar.filter((not) => not >= 50),
+      );
+
+      // 5. some()
+      const meyveler = ["elma", "muz"];
+      createCard(
+        "5. some() -> ['elma', 'muz'] içinde 'muz' var mı?",
+        meyveler.some((m) => m === "muz"),
+      );
+
+      // 6. every()
+      const sinifYasi = [20, 22, 25];
+      createCard(
+        "6. every() -> [20, 22, 25] hepsi >= 18 mi?",
+        sinifYasi.every((yas) => yas >= 18),
+      );
+
+      // 7. push()
+      const renkler = ["kırmızı", "mavi"];
+      renkler.push("yeşil");
+      createCard(
+        "7. push() -> ['kırmızı', 'mavi'] sonuna 'yeşil' ekle",
+        renkler,
+      );
+
+      // 8. includes()
+      const araclar = ["araba", "bisiklet"];
+      createCard(
+        "8. includes() -> ['araba', 'bisiklet'] 'araba' içeriyor mu?",
+        araclar.includes("araba"),
+      );
+
+      // 9. toLowerCase()
+      createCard("9. toLowerCase() -> 'MERHABA'", "MERHABA".toLowerCase());
+
+      // 10. toUpperCase()
+      createCard("10. toUpperCase() -> 'selam'", "selam".toUpperCase());
+
+      // 11. trim()
+      createCard("11. trim() -> '   kod   '", "   kod   ".trim());
+
+      // 12. split()
+      createCard(
+        "12. split() -> 'yüzme,koşu' virgülden ayır",
+        "yüzme,koşu".split(","),
+      );
+
+      // 13. join()
+      createCard(
+        "13. join() -> ['JS', 'harika'] boşlukla birleştir",
+        ["JS", "harika"].join(" "),
+      );
+
+      // 14. parseFloat()
+      createCard(
+        "14. parseFloat() -> '19.99 TL' sayıya çevir",
+        parseFloat("19.99 TL"),
+      );
+
+      // 15 & 16. setInterval() ve clearInterval()
+
+      let sayac = 0;
+      const aralikId = setInterval(() => {
+        sayac++;
+        let timerBox = document.getElementById("timer-box");
+        if (!timerBox) {
+          timerBox = document.createElement("div");
+          timerBox.id = "timer-box";
+          timerBox.className =
+            "bg-white p-3 rounded border border-gray-200 shadow-sm font-mono text-xs col-span-1 md:col-span-2 text-center bg-blue-50";
+          document.getElementById("single-examples").appendChild(timerBox);
+        }
+        timerBox.innerHTML = `<strong>15-16. setInterval & clearInterval:</strong> Sayaç çalışıyor: <span class="font-bold text-red-600">${sayac}</span>`;
+
+        if (sayac === 3) {
+          clearInterval(aralikId);
+          timerBox.innerHTML += ` <span class="text-green-600 font-bold">(Süre doldu: clearInterval ile süre durduruldu)</span>`;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

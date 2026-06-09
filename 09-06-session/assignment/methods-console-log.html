@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Methods</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 p-6 max-w-3xl mx-auto">
+    <header class="pb-4">
+      <h1 class="text-2xl font-bold text-gray-900">
+        JavaScript Method Örnekleri
+      </h1>
+      <p
+        class="text-sm text-blue-600 mt-2 bg-blue-50 p-3 rounded border-l-4 border-blue-500"
+      >
+        Tüm çıktıları incelemek için tarayıcınızda Sağ Tık -> İncele -> Console
+        sekmesini açın.
+      </p>
+    </header>
+
+    <script>
+      // 1. map()
+      const sayilar = [1, 2, 3];
+      const karesi = sayilar.map((x) => x * x);
+      console.log("1. map ->", karesi);
+
+      // 2. find() (sadece ilk uyan değeri bulur)
+      const yaslar = [12, 18, 22];
+      const yetiskin = yaslar.find((yas) => yas >= 18);
+      console.log("2. find ->", yetiskin);
+
+      // 3. reduce()
+      const paralar = [10, 20, 30];
+      const toplamPara = paralar.reduce((toplam, miktar) => toplam + miktar, 0);
+      console.log("3. reduce ->", toplamPara);
+
+      // 4. filter()
+      const notlar = [45, 75, 85];
+      const gecenler = notlar.filter((not) => not >= 50);
+      console.log("4. filter ->", gecenler);
+
+      // 5. some()
+      const meyveler = ["elma", "muz"];
+      const muzVarMi = meyveler.some((meyve) => meyve === "muz");
+      console.log("5. some ->", muzVarMi);
+
+      // 6. every()
+      const sinifYasi = [20, 22, 25];
+      const herkesYetiskinMi = sinifYasi.every((yas) => yas >= 18);
+      console.log("6. every ->", herkesYetiskinMi);
+
+      // 7. push()
+      const renkler = ["kırmızı", "mavi"];
+      renkler.push("yeşil");
+      console.log("7. push ->", renkler);
+
+      // 8. includes()
+      const araclar = ["araba", "bisiklet"];
+      console.log("8. includes ->", araclar.includes("araba"));
+
+      // 9. toLowerCase()
+      const metinBuyuk = "MERHABA";
+      console.log("9. toLowerCase ->", metinBuyuk.toLowerCase());
+
+      // 10. toUpperCase()
+      const metinKucuk = "selam";
+      console.log("10. toUpperCase ->", metinKucuk.toUpperCase());
+
+      // 11. trim()
+      const bosluklu = "   kod   ";
+      console.log("11. trim ->", `"${bosluklu.trim()}"`);
+
+      // 12. split()
+      const hobiListesi = "yüzme,koşu";
+      console.log("12. split ->", hobiListesi.split(","));
+
+      // 13. join()
+      const kelimeler = ["JS", "harika"];
+      console.log("13. join ->", kelimeler.join(" "));
+
+      // 14. parseFloat()
+      const fiyatMetni = "19.99 TL";
+      console.log("14. parseFloat ->", parseFloat(fiyatMetni));
+
+      // 15 & 16. setInterval() ve clearInterval()
+      let sayac = 0;
+      const aralikId = setInterval(() => {
+        sayac++;
+        console.log(`15-16. setInterval -> Saniye: ${sayac}`);
+        if (sayac === 3) {
+          clearInterval(aralikId);
+          console.log("15-16. clearInterval -> Süre doldu, durduruldu");
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
