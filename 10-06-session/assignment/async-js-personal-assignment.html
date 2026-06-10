@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS - Zamanlayıcı Örnekleri (Web API)</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 p-6">
+    <!-- div: flex yerine mx-auto ile ortaladım, space-y-6 ile aralarına margin ekledim -->
+    <div class="max-w-md mx-auto space-y-6">
+      <h1 class="text-xl font-bold border-b pb-2">Zamanlayıcı Örnekleri</h1>
+
+      <div class="border p-4 rounded bg-white shadow-sm">
+        <h2 class="font-semibold text-base mb-2">
+          setInterval / clearInterval
+        </h2>
+        <div class="space-x-2 mb-2">
+          <button
+            id="interval-start"
+            class="bg-blue-600 text-white px-3 py-1 rounded text-sm cursor-pointer"
+          >
+            Başlat
+          </button>
+          <button
+            id="interval-stop"
+            class="bg-red-600 text-white px-3 py-1 rounded text-sm cursor-pointer"
+          >
+            Durdur
+          </button>
+        </div>
+        <p id="interval-status" class="text-sm text-gray-600 font-medium">
+          Durum: Durduruldu (Sayaç: 0)
+        </p>
+      </div>
+
+      <div class="border p-4 rounded bg-white shadow-sm">
+        <h2 class="font-semibold text-base mb-2">setTimeout / clearTimeout</h2>
+        <div class="space-x-2 mb-2">
+          <button
+            id="timeout-start"
+            class="bg-blue-600 text-white px-3 py-1 rounded text-sm cursor-pointer"
+          >
+            Başlat (3sn sonra)
+          </button>
+          <button
+            id="timeout-stop"
+            class="bg-red-600 text-white px-3 py-1 rounded text-sm cursor-pointer"
+          >
+            İptal Et
+          </button>
+        </div>
+        <p id="timeout-status" class="text-sm text-gray-600 font-medium">
+          Durum: Bekleniyor
+        </p>
+      </div>
+
+      <div class="border p-4 rounded bg-white shadow-sm">
+        <h2 class="font-semibold text-base mb-2">
+          requestAnimationFrame / cancelAnimationFrame
+        </h2>
+        <div class="space-x-2 mb-4">
+          <button
+            id="raf-start"
+            class="bg-blue-600 text-white px-3 py-1 rounded text-sm cursor-pointer"
+          >
+            Animasyon Başlat
+          </button>
+          <button
+            id="raf-stop"
+            class="bg-red-600 text-white px-3 py-1 rounded text-sm cursor-pointer"
+          >
+            Animasyon Durdur
+          </button>
+        </div>
+        <div
+          class="w-full bg-gray-100 h-12 rounded relative overflow-hidden mb-2"
+        >
+          <div
+            id="raf-box"
+            class="w-8 h-8 bg-emerald-500 rounded absolute top-2 left-0"
+          ></div>
+        </div>
+        <p id="raf-status" class="text-sm text-gray-600 font-medium">
+          Durum: Duran Kutu (0px)
+        </p>
+      </div>
+
+      <div class="border p-4 rounded bg-white shadow-sm">
+        <h2 class="font-semibold text-base mb-2">
+          requestIdleCallback / cancelIdleCallback
+        </h2>
+        <div class="space-x-2 mb-2">
+          <button
+            id="idle-start"
+            class="bg-blue-600 text-white px-3 py-1 rounded text-sm cursor-pointer"
+          >
+            Boşta İken Çalıştır
+          </button>
+          <button
+            id="idle-stop"
+            class="bg-red-600 text-white px-3 py-1 rounded text-sm cursor-pointer"
+          >
+            İptal Et
+          </button>
+        </div>
+        <p id="idle-status" class="text-sm text-gray-600 font-medium">
+          Durum: İşlem Yapılmadı
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const intervalStart = document.getElementById("interval-start");
+      const intervalStop = document.getElementById("interval-stop");
+      const intervalStatus = document.getElementById("interval-status");
+
+      const timeoutStart = document.getElementById("timeout-start");
+      const timeoutStop = document.getElementById("timeout-stop");
+      const timeoutStatus = document.getElementById("timeout-status");
+
+      const rafStart = document.getElementById("raf-start");
+      const rafStop = document.getElementById("raf-stop");
+      const rafBox = document.getElementById("raf-box");
+      const rafStatus = document.getElementById("raf-status");
+
+      const idleStart = document.getElementById("idle-start");
+      const idleStop = document.getElementById("idle-stop");
+      const idleStatus = document.getElementById("idle-status");
+
+      // setInterval mantığı başlangıç
+      let intervalId = null;
+      let intervalCounter = 0;
+      // interval işleminde, tarayıcı bir id atıyor. bu yüzden ID numarasını intervalID ile kullanarak
+      // clearInterval üzerinde kullanacağız. null başlangıçta değersiz olduğunu belirtiyor.
+      intervalStart.addEventListener("click", () => {
+        if (!intervalId) {
+          // eğer çalışmıyorsa başlat, null değeri tersine döneceği için true olacak
+          // ve if içerisindeki işlem başlayacak
+          intervalId = setInterval(() => {
+            intervalCounter++;
+            intervalStatus.textContent =
+              "Durum: Çalışıyor (Sayaç: " + intervalCounter + ")";
+          }, 1000);
+        }
+      });
+
+      intervalStop.addEventListener("click", () => {
+        if (intervalId) {
+          clearInterval(intervalId);
+          intervalId = null; // tekrar başlatmak için kimliği sıfırlamamız gerekiyor
+          intervalStatus.textContent =
+            "Durum: Durduruldu (Son sayaç: " + intervalCounter + ")";
+        }
+      });
+      // setInterval bitiş
+
+      //   setTimeout başlangıç
+      let timeoutId = null; // mantık önceki örnekteki gibi
+
+      timeoutStart.addEventListener("click", () => {
+        // !timeoutId = önceki örneğe ek olarak: setTimeout mantığında butona sürekli basıldığı durumda sürekli yeni bir işlem başlıyor. Bu yöntemle önceki işlemin güvenle bitmesini sağlıyoruz ve bir yandan da arkada birden fazla işlem yapmasını engelliyoruz çünkü değer artık null değil (bir ID aldı) ve görev tamamlanana kadar bu değer değişmediği için yapıyı korumuş oluyoruz
+        if (!timeoutId) {
+          timeoutStatus.textContent = "Durum: 3 saniye geri sayım başladı";
+          timeoutId = setTimeout(() => {
+            timeoutStatus.textContent = "Durum: Zamanlayıcı çalıştı";
+            timeoutId = null; // iş bitiyor ve sıfırlıyoruz, böylelikle bittikten sonra yeniden çalıştırabiliriz
+          }, 3000);
+        }
+      });
+
+      timeoutStop.addEventListener("click", () => {
+        // kontrol işlemi yapmadığımızda, o kısımda ne yazarsa yazsın butona bastığımızda "Durum: İşlem iptal edildi" ifadesini vereceği için önlem aldık. işlem yokken bassa da bu durum gerçekleşmeyecek çünkü burada if yapısı true olduğunda çalışır. şuanki değer ve basıldığındaki değeri ise null olaacağı için kod yapısı çalışmayacak
+        if (timeoutId) {
+          // timeoutId içi doluysa (çalıştırdık ve içi ID ile doldu) işlem yap.
+          clearTimeout(timeoutId); // hemen durduruyoruz, işlem iptal
+          timeoutId = null; // işlem eski haline geliyor,ID sıfırlıyoruz
+          timeoutStatus.textContent = "Durum: İşlem iptal edildi";
+        }
+      });
+      // setTimeout bitiş
+
+      // requestAnimationFrame başlangıç
+      // önemli fark: önceki yapılar zamana bağlı çalışıyorken, bu yapı yenileme hızına bağlı çalışıyor
+      let rafId = null; // önceki mantığa benzer şekilde bir yapı kurduk
+      let boxPosition = 0; //px olarak kullanacağımız yapı o yüzden global scopeda tutuyoruz
+
+      function animationLoop() {
+        boxPosition += 2; // Kutuyu her karede 2 piksel sağa kaydır
+        if (boxPosition > 250) {
+          boxPosition = 0; // Şeridin sonuna gelince başa sar
+        }
+        rafBox.style.transform = "translateX(" + boxPosition + "px)";
+        rafStatus.textContent =
+          "Durum: Kutu hareket ediyor (Pozisyon: " + boxPosition + "px)";
+
+        // Tarayıcıya sonraki karede bu fonksiyonu tekrar çağırmasını söylüyoruz (recursion ile loop)
+        rafId = requestAnimationFrame(animationLoop); //önemli: loop yöntemleri kullanılarak yapılsaydı hemen bir anda yapacaktı ve tarayıcı ile arasında uyuşmazlık olacaktı (render ve loop döngüsü arasındaki ilişkiden kaynaklı, tarayıcı muhtemelen hızına yetişemeyecek) recursion durumu ile fonksiyon bitiminde tekrar fonksiyon çağrılarak render durumunu ve zamanını gözetecek bir yapı oluşturmuş oluyoruz
+      }
+
+      rafStart.addEventListener("click", () => {
+        if (!rafId) {
+          rafId = requestAnimationFrame(animationLoop);
+        }
+      });
+      // önceki örneklerdeki mantıkla aynı
+      rafStop.addEventListener("click", () => {
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+          //  Buraya boxPosition = 0 eklersem, kutu pozisyonunu sıfırlamış olurum yani baştan başlar ama burada onun yerine işlemi durdurmayı seçiyorum ve işlemden gelen ID değerini de boşaltarak, animasyon başlat butonuna bastığımda kalan işlemin devam etmesini sağlıyorum (boxposition globalde değer aldığı için kutu konumu korunmuş oluyor)
+          rafStatus.textContent =
+            "Durum: Durduruldu (Durduğu yer: " + boxPosition + "px)";
+        }
+      });
+
+      // loop ile denemeye çalıştım ve cidden zorladı. burada birkaç kaynak kullandım bunlar sırasıyla:
+      // stackoverflow, mdn, AI
+      // requestAnimationFrame bitiş
+
+      // requestIdleCallback başlangıç
+      //   Bu kullanım diğerlerine göre farklı. Tarayıcı boşa geçtiğinde (idle) o zaman çalışıyor
+      //   Araştırdığım kadarıyla use case durumlarına örnek : bazı logları göndermek ve performansa yük bindiren işlemleri, tarayıcı boşta iken kullanıcıya hissetirilmeden yapılmasını sağlamak
+      let idleId = null; //olası duruma karşı koruyoruz - önceki örneklerde kullandığımız aynı mantık burada da geçerli
+
+      idleStart.addEventListener("click", () => {
+        if (!idleId) {
+          idleStatus.textContent =
+            "Durum: Tarayıcının boş kalması bekleniyor...";
+          idleId = requestIdleCallback((deadline) => {
+            // (callback, option) alan bir yapıya sahip (callback = deadline -> süre bitimini )(source: mdn)
+            idleStatus.textContent =
+              "Durum: Tamamlandı. Kalan süre: " +
+              Math.round(deadline.timeRemaining()) + //maksimum değer: 50ms timereaning olayı ise 50msten geriye doğru giderek, yapılacak işlemin kalan süresini veriyor. kod ilk satırlarında yazılsa daha yüksek bir ms değeri verebilir ve kodun altlarında ise çok daha az süre gösterebilir (10ms, 4ms gibi)
+              "ms";
+            idleId = null; // bu tür mantıksal yapıya "flag "
+          });
+        }
+      });
+
+      idleStop.addEventListener("click", () => {
+        if (idleId) {
+          // işlem tamamlanıyor (ID elde edildi), if true döndüğü için iptal ediyoruz, tekrar ID değerinin içini boşaltıyoruz ve böylelikle yeni işlem yapılmasını sağlıyoruz. Aynı zamanda da durumun iptal edildiğini ekranda belirtiyoruz.
+          cancelIdleCallback(idleId);
+          idleId = null;
+          idleStatus.textContent = "Durum: Boştaki işlem iptal edildi";
+        }
+      });
+
+      // kullanım için örnek yapı
+      // while (isler.length > 0 && deadline.timeRemaining() > 5) {
+      // 5ms fazla vakit var mı?
+      // varsa sıradaki işi yap
+      //   yapilacakIsıIsle(isler.shift());
+      // }
+
+      //   requestIdleCallback bitiş
+    </script>
+  </body>
+</html>
