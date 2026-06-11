@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Methods</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800 p-6 max-w-4xl mx-auto space-y-8">
+    <header class="border-b border-gray-200 pb-4">
+      <h1 class="text-2xl font-bold text-gray-900">
+        JavaScript Method Örnekleri
+      </h1>
+    </header>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-4">Örnekler</h2>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm"
+        id="single-examples"
+      ></div>
+    </section>
+
+    <script>
+      // Stillerin kolay uygulanması için function ekledim
+      function createCard(title, result) {
+        const container = document.getElementById("single-examples");
+        const card = document.createElement("div");
+        card.className =
+          "bg-white p-3 rounded border border-gray-200 shadow-sm font-mono text-xs";
+        card.innerHTML = `<strong class="text-gray-700 block mb-1">${title}:</strong> <span class="text-blue-600">${JSON.stringify(result)}</span>`;
+        container.appendChild(card);
+      }
+
+      // 1. map()
+      const urunFiyatlari = [100, 250, 500];
+      createCard(
+        "1. map() -> [100, 250, 500] %20 indirimli fiyatlar",
+        urunFiyatlari.map((fiyat) => fiyat * 0.8),
+      );
+
+      // 2. find()
+      const personeller = ["Ahmet", "Can", "Selin"];
+      createCard(
+        "2. find() -> ['Ahmet', 'Can', 'Selin'] 4 harften uzun ilk isim çıktılanacak",
+        personeller.find((isim) => isim.length > 4),
+      );
+
+      // 3. reduce()
+      const sepet = [5, 12, 3];
+      createCard(
+        "3. reduce() -> [5, 12, 3] toplam ürün adedi",
+        sepet.reduce((toplamAdet, adet) => toplamAdet + adet, 0),
+      );
+
+      // 4. filter()
+      const sicakliklar = [-5, 12, 0, 24, -2];
+      createCard(
+        "4. filter() -> [-5, 12, 0, 24, -2] sıfırın altındaki dereceler",
+        sicakliklar.filter((derece) => derece < 0),
+      );
+
+      // 5. some()
+      const biletler = ["Ekonomik", "Ekonomik", "Business"];
+      createCard(
+        "5. some() -> ['Ekonomik', 'Ekonomik', 'Business'] Business bilet var mı?",
+        biletler.some((bilet) => bilet === "Business"),
+      );
+
+      // 6. every()
+      const indirmeDurumlari = [100, 100, 95];
+      createCard(
+        "6. every() -> [100, 100, 95] hepsi tamamlandı (100) mı?",
+        indirmeDurumlari.every((yuzde) => yuzde === 100),
+      );
+
+      // 7. push()
+      const sehirler = ["İstanbul", "Ankara"];
+      sehirler.push("İzmir");
+      createCard(
+        "7. push() -> ['İstanbul', 'Ankara'] rotasına 'İzmir' ekle",
+        sehirler,
+      );
+
+      // 8. includes()
+      const hobiler = ["Tiyatro", "Kitap", "Müzik"];
+      createCard(
+        "8. includes() -> ['Tiyatro', 'Kitap', 'Müzik'] 'Resim' var mı?",
+        hobiler.includes("Resim"),
+      );
+
+      // 9. toLowerCase()
+      createCard(
+        "9. toLowerCase() -> 'KULLANICI_ADI'",
+        "KULLANICI_ADI".toLowerCase(),
+      );
+
+      // 10. toUpperCase()
+      createCard(
+        "10. toUpperCase() -> 'javascript'",
+        "javascript".toUpperCase(),
+      );
+
+      // 11. trim()
+      createCard(
+        "11. trim() -> '   eposta@test.com   '",
+        "   eposta@test.com   ".trim(),
+      );
+
+      // 12. split() (array döndürür)
+      createCard(
+        "12. split() -> 'Pazartesi-Salı-Çarşamba' tireden ayır",
+        "Pazartesi-Salı-Çarşamba".split("-"),
+      );
+
+      // 13. join()
+      createCard(
+        "13. join() -> ['Tarih', '2026'] klasör yoluna çevir",
+        ["Tarih", "2026"].join("/"),
+      );
+
+      // 14. parseFloat()
+      createCard(
+        "14. parseFloat() -> '74.5 kg' sayısal ağırlık",
+        parseFloat("74.5 kg"),
+      );
+
+      // 15. JSON.stringify()
+      const kullaniciNesnesi = { id: 1, aktif: true };
+      createCard(
+        "15. JSON.stringify() -> Nesneyi JSON string'e çevir",
+        kullaniciNesnesi,
+      );
+
+      // 16. Spread Operator (...)
+      const eskiDizi = [1, 2];
+      const yeniDizi = [...eskiDizi, 3, 4];
+      createCard(
+        "16. Spread Operator -> [1, 2] dizisini yeniye kopyala ve ekle",
+        yeniDizi,
+      );
+
+      // 17. this keyword
+      const araba = {
+        marka: "Togg",
+        getMarka: function () {
+          return this.marka;
+        },
+      };
+      createCard(
+        "17. this -> Obje içindeki 'this.marka' değerini göster",
+        araba.getMarka(),
+      );
+
+      // 18. forEach()
+      const sayilarListe = [10, 20, 30];
+      let sonucYazi = "";
+      sayilarListe.forEach((sayi, index) => {
+        sonucYazi += `${index}:${sayi} `;
+      });
+      createCard(
+        "18. forEach() -> Dizi elemanlarını sırasıyla metne ekle",
+        sonucYazi.trim(),
+      );
+
+      // 19. Promise
+      // Async işlemler için önce boş bir alan oluşturuyoruz
+      const container = document.getElementById("single-examples");
+
+      const promiseCard = document.createElement("div");
+      promiseCard.className =
+        "bg-white p-3 rounded border border-gray-200 shadow-sm font-mono text-xs";
+      promiseCard.innerHTML = `<strong class="text-gray-700 block mb-1">19. Promise -> Veri bekleniyor (2sn):</strong> <span id="promise-res" class="text-amber-600">Yükleniyor...</span>`;
+      container.appendChild(promiseCard);
+
+      const veriYukle = new Promise((resolve) => {
+        setTimeout(() => resolve("Bağlantı Başarılı"), 2000);
+      });
+      veriYukle.then((cevap) => {
+        const el = document.getElementById("promise-res");
+        el.className = "text-blue-600";
+        el.innerText = JSON.stringify(cevap);
+      });
+
+      // 20. fetch API
+      const fetchCard = document.createElement("div");
+      fetchCard.className =
+        "bg-white p-3 rounded border border-gray-200 shadow-sm font-mono text-xs";
+      fetchCard.innerHTML = `<strong class="text-gray-700 block mb-1">20. fetch() -> API'den başlık çek:</strong> <span id="fetch-res" class="text-amber-600">API Aranıyor...</span>`;
+      container.appendChild(fetchCard);
+
+      fetch("https://jsonplaceholder.typicode.com/todos/1") //fakeapi benzeri bir site kullandım
+        .then((response) => response.json())
+        .then((data) => {
+          const el = document.getElementById("fetch-res");
+          el.className = "text-blue-600";
+          el.innerText = JSON.stringify(data.title);
+        });
+
+      // 21. async - await
+      const asyncCard = document.createElement("div");
+      asyncCard.className =
+        "bg-white p-3 rounded border border-gray-200 shadow-sm font-mono text-xs";
+      asyncCard.innerHTML = `<strong class="text-gray-700 block mb-1">21. async - await -> Veri yakala:</strong> <span id="async-res" class="text-amber-600">Bekleniyor...</span>`;
+      container.appendChild(asyncCard);
+
+      async function veriGetir() {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/todos/2",
+        );
+        const data = await response.json();
+        const el = document.getElementById("async-res");
+        el.className = "text-blue-600";
+        el.innerText = JSON.stringify(data.title);
+      }
+      veriGetir();
+
+      // 22. axios
+      const axiosCard = document.createElement("div");
+      axiosCard.className =
+        "bg-white p-3 rounded border border-gray-200 shadow-sm font-mono text-xs";
+      axiosCard.innerHTML = `<strong class="text-gray-700 block mb-1">22. axios -> GET isteği:</strong> <span id="axios-res" class="text-amber-600">İstek atılıyor...</span>`;
+      container.appendChild(axiosCard);
+
+      axios
+        .get("https://jsonplaceholder.typicode.com/todos/3")
+        .then((response) => {
+          const el = document.getElementById("axios-res");
+          el.className = "text-blue-600";
+          el.innerText = JSON.stringify(response.data.title);
+        });
+
+      // 23 & 24. setInterval() ve clearInterval()
+      let adim = 0;
+      const sayacId = setInterval(() => {
+        adim++;
+        let timerBox = document.getElementById("timer-box");
+        if (!timerBox) {
+          timerBox = document.createElement("div");
+          timerBox.id = "timer-box";
+          timerBox.className =
+            "bg-white p-3 rounded border border-gray-200 shadow-sm font-mono text-xs col-span-1 md:col-span-2 text-center bg-blue-50";
+          document.getElementById("single-examples").appendChild(timerBox);
+        }
+        timerBox.innerHTML = `<strong>setInterval & clearInterval:</strong> Dosya yükleniyor: <span class="font-bold text-red-600">%${adim * 33}</span>`;
+
+        if (adim === 3) {
+          clearInterval(sayacId);
+          timerBox.innerHTML = `<strong>23 - 24. setInterval & clearInterval:</strong> Dosya yükleniyor: <span class="font-bold text-green-600">%100</span> <span class="text-green-600 font-bold">(Yükleme Tamamlandı!)</span>`;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
