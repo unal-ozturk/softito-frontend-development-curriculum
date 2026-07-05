@@ -1,0 +1,550 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "role": "secretary",
+      "clinicId": null,
+      "name": "Zehra Yılmaz",
+      "email": "zehra.yilmaz@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "14",
+      "role": "secretary",
+      "clinicId": null,
+      "name": "Zeynep Kaya",
+      "email": "zeynep.kaya@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "role": "clinic_doctor",
+      "clinicId": "c1",
+      "name": "Dr. Ali Veli",
+      "email": "ali.veli@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "3",
+      "role": "clinic_doctor",
+      "clinicId": "c1",
+      "name": "Dr. Ayşe Yılmaz",
+      "email": "ayse.yilmaz@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "4",
+      "role": "clinic_doctor",
+      "clinicId": "c2",
+      "name": "Dr. Mehmet Yılmaz",
+      "email": "mehmet.yilmaz@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "5",
+      "role": "clinic_doctor",
+      "clinicId": "c2",
+      "name": "Dr. Fatma Şahin",
+      "email": "fatma.sahin@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "6",
+      "role": "clinic_doctor",
+      "clinicId": "c3",
+      "name": "Dr. Ahmet Çelik",
+      "email": "ahmet.celik@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "7",
+      "role": "clinic_doctor",
+      "clinicId": "c3",
+      "name": "Dr. Elif Demir",
+      "email": "elif.demir@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "8",
+      "role": "clinic_doctor",
+      "clinicId": "c4",
+      "name": "Dr. Burak Can",
+      "email": "burak.can@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "9",
+      "role": "clinic_doctor",
+      "clinicId": "c4",
+      "name": "Dr. Gizem Arslan",
+      "email": "gizem.arslan@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "10",
+      "role": "clinic_doctor",
+      "clinicId": "c5",
+      "name": "Dr. Caner Tekin",
+      "email": "caner.tekin@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "11",
+      "role": "clinic_doctor",
+      "clinicId": "c5",
+      "name": "Dr. Selin Aydın",
+      "email": "selin.aydin@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "12",
+      "role": "er_doctor",
+      "clinicId": "er",
+      "name": "Dr. Hakan Öztürk",
+      "email": "hakan.ozturk@yedikule.com",
+      "password": "123456"
+    },
+    {
+      "id": "13",
+      "role": "er_doctor",
+      "clinicId": "er",
+      "name": "Dr. Merve Kılıç",
+      "email": "merve.kilic@yedikule.com",
+      "password": "123456"
+    }
+  ],
+  "patients": [
+    {
+      "id": "p1",
+      "hastaNo": "HY-1001",
+      "tcNo": "12345678901",
+      "adSoyad": "Mehmet Demir",
+      "dogumTarihi": "1980-05-15",
+      "kanGrubu": "0+",
+      "cinsiyet": "Erkek",
+      "adres": "İstanbul",
+      "telefon": "5551234567",
+      "sigortaTuru": "SGK",
+      "kronikHastaliklar": [
+        "Hipertansiyon"
+      ],
+      "alerjiler": "Penisilin"
+    },
+    {
+      "id": "p2",
+      "hastaNo": "HY-1002",
+      "tcNo": "98765432109",
+      "adSoyad": "Zeynep Aslan",
+      "dogumTarihi": "1992-08-22",
+      "kanGrubu": "A-",
+      "cinsiyet": "Kadın",
+      "adres": "Ankara",
+      "telefon": "5329876543",
+      "sigortaTuru": "Özel Sigorta",
+      "kronikHastaliklar": [],
+      "alerjiler": "Bilinmiyor"
+    },
+    {
+      "id": "p3",
+      "hastaNo": "HY-1003",
+      "tcNo": "56473829105",
+      "adSoyad": "Can Yücel",
+      "dogumTarihi": "1975-11-03",
+      "kanGrubu": "B+",
+      "cinsiyet": "Erkek",
+      "adres": "İzmir",
+      "telefon": "5054567890",
+      "sigortaTuru": "SGK",
+      "kronikHastaliklar": [
+        "Diyabet",
+        "Astım"
+      ],
+      "alerjiler": "Polen"
+    },
+    {
+      "id": "p4",
+      "hastaNo": "HY-1004",
+      "tcNo": "44332211009",
+      "adSoyad": "Elif Kara",
+      "dogumTarihi": "2005-02-14",
+      "kanGrubu": "AB+",
+      "cinsiyet": "Kadın",
+      "adres": "Bursa",
+      "telefon": "5441112233",
+      "sigortaTuru": "Yeşil Kart",
+      "kronikHastaliklar": [],
+      "alerjiler": "Bilinmiyor"
+    },
+    {
+      "tcNo": "11111111111",
+      "adSoyad": "aaaaa",
+      "dogumTarihi": "1910-02-12",
+      "cinsiyet": "erkek",
+      "telefon": "11111",
+      "id": "mCdEUEYVK8I",
+      "hastaNo": "HY-1270",
+      "kronikHastaliklar": [],
+      "alerjiler": "Bilinmiyor",
+      "sigortaTuru": "SGK"
+    },
+    {
+      "tcNo": "11212121212",
+      "adSoyad": "sdasasddsadasdas",
+      "dogumTarihi": "1111-11-11",
+      "cinsiyet": "Erkek",
+      "telefon": "05555555555",
+      "id": "LTdsfSVQgOs",
+      "hastaNo": "HY-2644",
+      "kronikHastaliklar": [],
+      "alerjiler": "Bilinmiyor",
+      "sigortaTuru": "SGK"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "a0",
+      "patientId": "p1",
+      "doctorId": 4,
+      "clinicId": "c2",
+      "tarih": "2026-06-20",
+      "saat": "11:00",
+      "durum": "tamamlandi",
+      "odemeDurumu": "ödendi",
+      "siraNo": 5
+    },
+    {
+      "id": "a00",
+      "patientId": "p1",
+      "doctorId": 2,
+      "clinicId": "c1",
+      "tarih": "2026-06-25",
+      "saat": "14:30",
+      "durum": "tamamlandi",
+      "odemeDurumu": "ödendi",
+      "siraNo": 12
+    },
+    {
+      "id": "a1",
+      "patientId": "p1",
+      "doctorId": 2,
+      "clinicId": "c1",
+      "tarih": "2026-07-05",
+      "saat": "09:00",
+      "durum": "tamamlandi",
+      "odemeDurumu": "ödendi",
+      "siraNo": 1
+    },
+    {
+      "id": "rNsWuC4dQr0",
+      "patientId": "p2",
+      "doctorId": 2,
+      "clinicId": "c1",
+      "tarih": "2026-07-05",
+      "saat": "09:30",
+      "durum": "bekliyor",
+      "odemeDurumu": "ödendi",
+      "siraNo": 2
+    },
+    {
+      "id": "ALcnWZnJ6Qo",
+      "patientId": "p3",
+      "doctorId": 2,
+      "clinicId": "c1",
+      "tarih": "2026-07-05",
+      "saat": "10:00",
+      "durum": "tamamlandi",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 3
+    },
+    {
+      "id": "1d1_Cavp1-Y",
+      "patientId": "p4",
+      "doctorId": 2,
+      "clinicId": "c1",
+      "tarih": "2026-07-05",
+      "saat": "10:30",
+      "durum": "bekliyor",
+      "odemeDurumu": "ödendi",
+      "siraNo": 4
+    },
+    {
+      "id": "d2YMNrvZx2o",
+      "patientId": "LTdsfSVQgOs",
+      "doctorId": "12",
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "tamamlandi",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 80,
+      "sikayet": "",
+      "tani": "",
+      "recete": ""
+    },
+    {
+      "id": "ap-fatma-test",
+      "patientId": "p2",
+      "doctorId": "5",
+      "clinicId": "c2",
+      "tarih": "2026-07-05",
+      "saat": "11:15",
+      "durum": "tamamlandi",
+      "odemeDurumu": "ödendi",
+      "siraNo": 1,
+      "sikayet": "Göğüs ağrısı, çarpıntı şikayeti ile acilden sevk edildi.",
+      "tani": "Aritmi başlangıcı",
+      "recete": "Beloc ZOK 50mg 1x1"
+    },
+    {
+      "id": "ap-fatma-bekleyen",
+      "patientId": "p3",
+      "doctorId": "5",
+      "clinicId": "c2",
+      "tarih": "2026-07-05",
+      "saat": "11:30",
+      "durum": "tamamlandi",
+      "odemeDurumu": "ödendi",
+      "siraNo": 2,
+      "isReferral": true,
+      "referralNote": "Acilden çarpıntı şikayeti ile gönderildi, EKG çekilmesi uygun olur.",
+      "sikayet": "aa",
+      "tani": "aa",
+      "recete": "aaaa"
+    },
+    {
+      "id": "xwkfgbwQjbY",
+      "patientId": "mCdEUEYVK8I",
+      "doctorId": 2,
+      "clinicId": "c1",
+      "tarih": "2026-07-12",
+      "saat": "09:00",
+      "durum": "bekliyor",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 1
+    },
+    {
+      "id": "nbECkvLeXpY",
+      "patientId": "mCdEUEYVK8I",
+      "doctorId": 2,
+      "clinicId": "c1",
+      "tarih": "2026-07-08",
+      "saat": "11:30",
+      "durum": "iptal",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 1
+    },
+    {
+      "id": "qV5W-b3qOqY",
+      "patientId": "mCdEUEYVK8I",
+      "doctorId": 2,
+      "clinicId": "c1",
+      "tarih": "2026-07-06",
+      "saat": "09:30",
+      "durum": "bekliyor",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 1
+    },
+    {
+      "id": "dbQeW-puY_k",
+      "patientId": "mCdEUEYVK8I",
+      "doctorId": 5,
+      "clinicId": "c2",
+      "tarih": "2026-07-06",
+      "saat": "09:00",
+      "durum": "bekliyor",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 1
+    },
+    {
+      "id": "jaCoZgDVQG0",
+      "patientId": "p1",
+      "doctorId": "12",
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "tamamlandi",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 31,
+      "sikayet": "aa",
+      "tani": "aa",
+      "recete": "aa"
+    },
+    {
+      "id": "MACRDYeoj6I",
+      "patientId": "p1",
+      "doctorId": "12",
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "tamamlandi",
+      "odemeDurumu": "ödendi",
+      "siraNo": 90,
+      "sikayet": "",
+      "tani": "",
+      "recete": "asprin"
+    },
+    {
+      "id": "XAJLHHg4tso",
+      "patientId": "p1",
+      "doctorId": "12",
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "tamamlandi",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 67,
+      "sikayet": "aa",
+      "tani": "aa",
+      "recete": "aa"
+    },
+    {
+      "id": "jHiRCXfmFiU",
+      "patientId": "p1",
+      "doctorId": "12",
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "tamamlandi",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 72,
+      "sikayet": "dssd",
+      "tani": "asddsadsa",
+      "recete": "saddsa"
+    },
+    {
+      "id": "IBqPRmwJIlc",
+      "patientId": "p1",
+      "doctorId": "12",
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "tamamlandi",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 2
+    },
+    {
+      "id": "P3qXFEaC2o0",
+      "patientId": "p1",
+      "doctorId": "12",
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "tamamlandi",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 3,
+      "sikayet": "dd",
+      "tani": "",
+      "recete": ""
+    },
+    {
+      "id": "6N33Wr1x9lU",
+      "patientId": "p1",
+      "doctorId": null,
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "bekliyor",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 4
+    },
+    {
+      "id": "uhEYSyo-lxA",
+      "patientId": "p1",
+      "doctorId": null,
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "bekliyor",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 5
+    },
+    {
+      "id": "1xavWILufaw",
+      "patientId": "mCdEUEYVK8I",
+      "doctorId": "2",
+      "clinicId": "c1",
+      "tarih": "2026-07-08",
+      "saat": "09:00",
+      "durum": "bekliyor",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 1
+    },
+    {
+      "id": "VOyfXQ0Qh5Y",
+      "patientId": "p1",
+      "doctorId": "5",
+      "clinicId": "c2",
+      "tarih": "2026-07-05",
+      "saat": "21:47",
+      "durum": "tamamlandi",
+      "odemeDurumu": "ödendi",
+      "siraNo": 0,
+      "isReferral": true,
+      "referralNote": "bakın",
+      "sikayet": "aaa",
+      "tani": "aa",
+      "recete": "aa"
+    },
+    {
+      "id": "Sj2zdjwIj_c",
+      "patientId": "p1",
+      "doctorId": null,
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "bekliyor",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 4
+    },
+    {
+      "id": "KiDKAbctnuc",
+      "patientId": "p1",
+      "doctorId": null,
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "bekliyor",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 5
+    },
+    {
+      "id": "Xn4UHYzStHE",
+      "patientId": "p1",
+      "doctorId": null,
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "bekliyor",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 6
+    },
+    {
+      "id": "6tZ9FfSVnqU",
+      "patientId": "p1",
+      "doctorId": "12",
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "tamamlandi",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 7,
+      "sikayet": "aa",
+      "tani": "",
+      "recete": ""
+    },
+    {
+      "id": "xIIVuDd2Dg8",
+      "patientId": "p2",
+      "doctorId": null,
+      "clinicId": "er",
+      "tarih": "2026-07-05",
+      "saat": "Acil Sıra",
+      "durum": "bekliyor",
+      "odemeDurumu": "bekliyor",
+      "siraNo": 7
+    }
+  ],
+  "medical_records": [],
+  "lab_results": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
